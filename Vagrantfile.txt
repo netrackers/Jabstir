@@ -1,3 +1,13 @@
+# Before using the vagrantfile, you need to add the relevant boxes or check if you have them on your system
+# To see a list of boxes on your system, type " vagrant global-config "
+# To add the Precise box: vagrant box add hashicorp/precise64
+# To add the trusty box: vagrant box add ubuntu/trusty64
+# To add the puphpet box: vragrant box add puphpet/ubuntu1404-x64
+#
+# Note: If you use the vagrantfil as it is, YOU WILL GET ERROR MESSAGES.
+# HINTS: There are errors on line 12, 25 and 37.
+# Good luck and waiting to hear your comments.
+
 Vagrant.configure("2") do |config|
 
 	config.vm.define "Precise64" do |Precise64|
