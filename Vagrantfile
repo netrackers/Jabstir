@@ -10,7 +10,7 @@
 
 Vagrant.configure("2") do |config|
 
-	config.vm.define "Precise64" do |Precise64|
+	config.vm.define "Precise64" do |Precise64| # Name given in this line does not match subsequent lines of this file
 		precise.vm.box = "hashicorp/precise64"
 		config.vm.box_url="https://vagrantcloud.com/hashicorp/precise64"
 		precise.vm.network :forwarded_port , guest: 22, host: 10222, id: "ssh"
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 	config.vm.define "trusty" do |trusty|
 		trusty.vm.box = "ubuntu/trusty64"
 		config.vm.box_url="https://vagrantcloud.com/ubuntu/trusty64"
-		trusty.vm.network :forwarded_port , guest: 22, host: 10222, id: "ssh"
+		trusty.vm.network :forwarded_port , guest: 22, host: 10222, id: "ssh" # Host number conflict with first box
 		trusty.vm.network :private_network , ip: "192.168.56.103"
 		trusty.vm.provider :virtualbox do |v|
 		v.customize ["modifyvm", :id, "--memory", 512]
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
 		config.vm.box_url="https://vagrantcloud.com/puphpet/ubuntu1404-x64"
 		puphpet.vm.network :forwarded_port , guest: 22, host: 10226, id: "ssh"
 		puphpet.vm.network :private_network , ip: "192.168.56.104"
-		puphpet.vm.provider :virtualbox do |vb|
+		puphpet.vm.provider :virtualbox do |vb| # |vb| used rather than |v|
 		v.customize ["modifyvm", :id, "--memory", 512]
 		end
 	end
